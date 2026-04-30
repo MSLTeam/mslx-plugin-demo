@@ -1,5 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MSLX.SDK.IServices;
+using MSLX.SDK.Models;
+using Newtonsoft.Json.Linq;
 
 namespace MSLX.Plugin.Demo.Controllers;
 
@@ -19,9 +21,14 @@ public class DemoController : ControllerBase
     public IActionResult GetServers()
     {
         var running = _serverService.HasRunningServers();
-        return Ok(new { 
-            message = "mslx-plugin-demo", 
-            hostStatus = running ? "有服务器火热运行中" : "没有服务器实例运行中" 
+        return Ok(new ApiResponse<object>()
+        {
+            Code = 200,
+            Message = "用户信息错误",
+            Data = new JObject() {
+                ["hostStatus"] = running ? "有服务器火热运行中" : "没有服务器实例运行中",
+                ["plugin"] = "mslx-plugin-demo",
+            }
         });
     }
 }
