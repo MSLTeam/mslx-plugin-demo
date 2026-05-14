@@ -7,7 +7,7 @@ public class MSLXPluginEntry : IPlugin
     public string Id => "mslx-plugin-demo"; 
     public string Name => "MSLX 示例插件";
     public string Description => "这是MSLX的示例插件，简单演示了一些插件可实现的功能，可以前往Github查看具体实现~";
-    public string Version => "1.0.3";
+    public string Version => "1.1.0";
     public string Icon => "icon.png";
     public string MinSDKVersion => "1.4.0";
     public string Developer => "luluxiaoyu";
