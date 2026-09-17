@@ -18,11 +18,12 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="10.0.7" />
-    <PackageReference Include="MSLX.SDK" Version="1.5.2" ExcludeAssets="runtime"/>
+    <PackageReference Include="MSLX.SDK" Version="1.6.3.3-dev-202609171123" ExcludeAssets="runtime"/>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Frontend\dist\" />
+    <Folder Include="Library\Application Support\Microsoft\DeveloperTools\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +33,8 @@
     <None Include="Frontend\**">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
+
+    <None Remove="Library\Application Support\Microsoft\DeveloperTools\deviceid" />
   </ItemGroup>
 
   <ItemGroup>

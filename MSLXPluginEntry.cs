@@ -15,7 +15,7 @@ public class MSLXPluginEntry : IPlugin
     public string Description => "这是MSLX的示例插件，简单演示了一些插件可实现的功能，可以前往Github查看具体实现~";
     public string Version => "1.1.0";
     public string Icon => "icon.png";
-    public string MinSDKVersion => "1.5.2";
+    public string MinSDKVersion => "1.6.4";
     public string Developer => "luluxiaoyu";
     public string AuthorUrl => "https://mslx.mslmc.cn/plugin-dev/init/start/";
     public string PluginUrl => "https://github.com/MSLTeam/mslx-plugin-demo";
@@ -29,6 +29,19 @@ public class MSLXPluginEntry : IPlugin
     {
         SDK.MSLX.Logger.Info("mslx-plugin-demo 载入成功~");
         SDK.MSLX.Logger.Info("当前存在实例数量：" + SDK.MSLX.Config.Servers.GetServerList().Count.ToString());
+
+        // ===== 事件钩子示例 (v1.6.4+) =====
+        // 1. 监听服务器实例启动完成事件
+        SDK.MSLX.Events.OnServerStarted += (sender, e) =>
+        {
+            SDK.MSLX.Logger.Info($"[事件监听] 实例 [{e.InstanceId}] 启动成功，PID: {e.ProcessId}");
+        };
+
+        // 2. 监听服务器实例停止事件
+        SDK.MSLX.Events.OnServerStopped += (sender, e) =>
+        {
+            SDK.MSLX.Logger.Info($"[事件监听] 实例 [{e.InstanceId}] 已停止，退出码: {e.ExitCode}");
+        };
 
         // ===== 配置读写示例 =====
         string dataDir = MSLXPluginEntry.Instance.Config().GetDataPath();
