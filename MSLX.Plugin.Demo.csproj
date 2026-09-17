@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -51,15 +51,15 @@
     <ItemGroup>
       <AllDlls Include="$(OutputPath)*.dll" />
       <DependenciesToMerge Include="@(AllDlls)" Exclude="$(OutputPath)$(AssemblyName).dll" />
-      <FinalInputAssemblies Include="@(DependenciesToMerge)" />
       <FinalInputAssemblies Include="$(OutputPath)$(AssemblyName).dll" />
+      <FinalInputAssemblies Include="@(DependenciesToMerge)" />
 
       <GarbageFiles Include="$(OutputPath)$(AssemblyName).staticwebassets.endpoints.json" />
       <GarbageFiles Include="$(OutputPath)appsettings*.json" />
       <GarbageFiles Include="$(OutputPath)$(AssemblyName).deps.json" />
     </ItemGroup>
 
-    <ILRepack Condition="'@(DependenciesToMerge)' != ''" Parallel="true" Internalize="true"  CopyAttributes="true" InputAssemblies="@(FinalInputAssemblies)" TargetKind="SameAsPrimaryAssembly" OutputFile="$(OutputPath)$(AssemblyName).dll" LibraryPath="$(OutputPath)" />
+    <ILRepack Condition="'@(DependenciesToMerge)' != ''" Parallel="true" Internalize="false" CopyAttributes="true" InputAssemblies="@(FinalInputAssemblies)" TargetKind="SameAsPrimaryAssembly" OutputFile="$(OutputPath)$(AssemblyName).dll" LibraryPath="$(OutputPath)" />
 
     <Delete Files="@(DependenciesToMerge)" Condition="'@(DependenciesToMerge)' != ''" />
     <Delete Files="@(GarbageFiles)" />

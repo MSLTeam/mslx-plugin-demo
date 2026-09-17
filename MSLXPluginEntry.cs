@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.ApplicationParts;
+using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using MSLX.SDK;
 using MSLX.SDK.Interfaces;
 using Newtonsoft.Json.Linq;
@@ -9,7 +9,7 @@ namespace MSLX.Plugin.Demo;
 
 public class MSLXPluginEntry : IPlugin
 {
-    public static MSLXPluginEntry Instance { get; private set; }
+    public static MSLXPluginEntry Instance { get; private set; } = null!;
     public string Id => "mslx-plugin-demo"; 
     public string Name => "MSLX 示例插件";
     public string Description => "这是MSLX的示例插件，简单演示了一些插件可实现的功能，可以前往Github查看具体实现~";
