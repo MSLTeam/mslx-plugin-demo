@@ -37,7 +37,7 @@ const fetchInstances = async () => {
     jsonResult.value = '// 正在通过宿主 Axios 拦截器拉取数据...\n// 自动携带 Token 中...';
 
     const res = await request.get({
-      url: '/api/plugins/mslx-plugin-demo/demo'
+      url: '/api/plugin/mslx-plugin-demo/demo'
     });
 
     jsonResult.value = JSON.stringify(res, null, 2);
@@ -172,7 +172,7 @@ const triggerDialog = () => {
         <div class="mb-3 flex items-center gap-2 text-sm text-[var(--td-text-color-primary)] font-bold">
           <code-icon class="text-[var(--color-primary)]" />
           <span class="bg-primary-light text-[var(--color-primary)] px-2 py-0.5 rounded text-xs font-mono">GET</span>
-          /api/plugins/mslx-plugin-demo/demo 原始响应
+          /api/plugin/mslx-plugin-demo/demo 原始响应
         </div>
 
         <div class="relative w-full flex-grow rounded-xl border border-[var(--td-component-border)] bg-[#1e1e1e] overflow-hidden shadow-inner flex flex-col min-h-[260px]">

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using MSLX.SDK.IServices;
 using MSLX.SDK.Models;
 using Newtonsoft.Json.Linq;
@@ -7,7 +7,7 @@ namespace MSLX.Plugin.Demo.Controllers;
 
 [ApiController]
 // 路由规范：api/plugin/{plugin-id}/[controller]
-[Route("api/plugins/mslx-plugin-demo/demo")]
+[Route("api/plugin/mslx-plugin-demo/demo")]
 public class DemoController : ControllerBase
 {
     private readonly IMCServerService _serverService;

@@ -110,7 +110,7 @@ public class MSLXPluginEntry : IPlugin
     public void OnRegisterEndpoints(IEndpointRouteBuilder endpoints)
     {
         // 可以在这里注册高级路由
-        // endpoints.MapHub<Hub>("/api/hubs/plugins/mslx-plugin-demo/demo");
+        // endpoints.MapHub<Hub>("/api/hubs/plugin/mslx-plugin-demo/demo");
     }
 
     public void OnRegisterServices(IServiceCollection services)
