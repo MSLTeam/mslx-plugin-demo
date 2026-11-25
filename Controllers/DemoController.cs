@@ -10,17 +10,17 @@ namespace MSLX.Plugin.Demo.Controllers;
 [Route("api/plugin/mslx-plugin-demo/demo")]
 public class DemoController : ControllerBase
 {
-    private readonly IMCServerService _serverService;
+    private readonly IInstanceLifecycleService _lifecycleService;
 
-    public DemoController(IMCServerService serverService)
+    public DemoController(IInstanceLifecycleService lifecycleService)
     {
-        _serverService = serverService;
+        _lifecycleService = lifecycleService;
     }
 
     [HttpGet]
     public IActionResult GetServers()
     {
-        var running = _serverService.HasRunningServers();
+        var running = _lifecycleService.HasRunningServers();
         return Ok(new ApiResponse<object>()
         {
             Code = 200,

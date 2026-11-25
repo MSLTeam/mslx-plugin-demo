@@ -18,7 +18,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="10.0.7" />
-    <PackageReference Include="MSLX.SDK" Version="1.6.3.3-dev-202609171123" ExcludeAssets="runtime"/>
+    <PackageReference Include="MSLX.SDK" Version="1.7.6" ExcludeAssets="runtime"/>
   </ItemGroup>
 
   <ItemGroup>
